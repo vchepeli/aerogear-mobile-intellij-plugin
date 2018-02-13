@@ -161,9 +161,8 @@ githubRelease {
     draft = false
     prerelease = true
     print ">" * 25
-    println buildPlugin.archivePath.listFiles()
-//    releaseAssets = buildPlugin.archivePath?.exists() ? buildPlugin.archivePath : null
-    releaseAssets = new File(buildDir, 'distributions').listFiles()
+    println buildPlugin.archivePath.parentFile
+    releaseAssets = buildPlugin.archivePath.parentFile.listFiles()
 }
 // TODO Create task Add CHANGELOG to plugin.xml file
 
