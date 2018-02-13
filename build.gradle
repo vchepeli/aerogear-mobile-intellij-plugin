@@ -151,7 +151,7 @@ release {
         commitVersionFileOnly = false
     }
 }
-tasks.githubRelease.mustRunAfter createReleaseTag
+//tasks.githubRelease.mustRunAfter createReleaseTag
 
 githubRelease {
     targetCommitish = /t_release_automation/ // TODO change it to master branch
@@ -170,6 +170,16 @@ task wrapper(type: Wrapper) {
 processResources {
     inputs.property "version", project.version
     filter(org.apache.tools.ant.filters.ReplaceTokens, tokens: [version: project.version])
+}
+
+gradle.taskGraph.beforeTask { Task task ->
+    print "=" * 25
+    println "[$task"
+}
+
+gradle.taskGraph.afterTask { Task task, TaskState state ->
+    print "=" * 25
+    println "]$task"
 }
 
 // ========= Custom tasks ========= //
