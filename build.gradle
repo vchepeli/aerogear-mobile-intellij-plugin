@@ -162,7 +162,7 @@ githubRelease {
     prerelease = true
     print ">" * 25
     println buildPlugin.archivePath.parentFile
-    releaseAssets = buildPlugin.archivePath.parentFile.listFiles()
+    releaseAssets = {-> buildPlugin.archivePath.parentFile.listFiles()}
 }
 // TODO Create task Add CHANGELOG to plugin.xml file
 
