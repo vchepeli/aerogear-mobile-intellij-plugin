@@ -151,7 +151,7 @@ release {
         commitVersionFileOnly = false
     }
 }
-//tasks.githubRelease.mustRunAfter createReleaseTag
+tasks.githubRelease.mustRunAfter createReleaseTag
 
 githubRelease {
     targetCommitish = /t_release_automation/ // TODO change it to master branch
