@@ -155,11 +155,13 @@ updateVersion.dependsOn tasks.githubRelease
 
 githubRelease {
     targetCommitish = /t_release_automation/ // TODO change it to master branch
+    owner = "vchepeli"
     token = "$System.env.GITHUB_TOKEN" // required
     body = "Wham, bam! Thank you for new release!" // TODO, create task to generate CHANGELOG
     draft = false
     prerelease = true
-    releaseAssets = buildPlugin.archivePath.parentFile.listFiles()
+//    releaseAssets = buildPlugin.archivePath?.exists() ? buildPlugin.archivePath : null
+    releaseAssets = new File(buildDir, 'distributions').listFiles()
 }
 // TODO Create task Add CHANGELOG to plugin.xml file
 
