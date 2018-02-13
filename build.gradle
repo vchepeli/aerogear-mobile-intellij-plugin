@@ -160,6 +160,8 @@ githubRelease {
     body = "Wham, bam! Thank you for new release!" // TODO, create task to generate CHANGELOG
     draft = false
     prerelease = true
+    print ">" * 25
+    println buildPlugin.archivePath.listFiles()
 //    releaseAssets = buildPlugin.archivePath?.exists() ? buildPlugin.archivePath : null
     releaseAssets = new File(buildDir, 'distributions').listFiles()
 }
