@@ -164,7 +164,7 @@ githubRelease {
 //    print ">" * 25
 //    println buildPlugin.archivePath.parentFile
     FilenameFilter filter = { dir, file -> file.contains("${project['release.releaseVersion']}") }
-    releaseAssets = buildPlugin.archivePath.parentFile.listFiles filter
+    releaseAssets = {-> buildPlugin.archivePath.parentFile.listFiles filter}
 }
 // TODO Create task Add CHANGELOG to plugin.xml file
 
