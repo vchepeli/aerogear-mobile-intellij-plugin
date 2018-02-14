@@ -161,9 +161,10 @@ githubRelease {
     body = "Wham, bam! Thank you for new release!" // TODO, create task to generate CHANGELOG
     draft = false
     prerelease = true
-    print ">" * 25
-    println buildPlugin.archivePath.parentFile
-    releaseAssets = {-> buildPlugin.archivePath.parentFile.listFiles()}
+//    print ">" * 25
+//    println buildPlugin.archivePath.parentFile
+    FilenameFilter filter = { dir, file -> file.contains("${project['release.releaseVersion']}") }
+    releaseAssets = buildPlugin.archivePath.parentFile.listFiles filter
 }
 // TODO Create task Add CHANGELOG to plugin.xml file
 
