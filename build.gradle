@@ -156,6 +156,7 @@ updateVersion.dependsOn tasks.githubRelease
 githubRelease {
     targetCommitish = /t_release_automation/ // TODO change it to master branch
     owner = "vchepeli"
+    System.out.println(">>>>>>>>>>>>>>>>>>>>>\n: $project.properties")
     name = "Aerogear Mobile Intellij Plugin v${-> project.version}"
     token = "$System.env.GITHUB_TOKEN" // required
     body = "Wham, bam! Thank you for new release!" // TODO, create task to generate CHANGELOG
